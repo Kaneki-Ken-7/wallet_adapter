@@ -5,7 +5,6 @@ import { WalletMultiButton } from '@solana/wallet-adapter-react-ui';
 
 import WalletSetup from './components/WalletSetup';
 import AirdropSection from './components/AirdropSection';
-// import TokenMinting from './components/TokenMinting';
 import TransactionTutorial from './components/TransactionTutorial';
 
 const Airdrop: React.FC = () => {
@@ -48,7 +47,6 @@ const Airdrop: React.FC = () => {
                     <div className="space-y-8">
                         <AirdropSection publicKey={publicKey} connection={connection} onAirdropComplete={fetchBalance} />
                         <TransactionTutorial publicKey={publicKey} connection={connection} onTransactionComplete={fetchBalance} />
-                        {/* <TokenMinting publicKey={publicKey} connection={connection} /> */}
                     </div>
                 </>
             ) : (

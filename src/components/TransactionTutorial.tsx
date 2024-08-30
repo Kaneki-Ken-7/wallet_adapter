@@ -39,10 +39,9 @@ const TransactionTutorial: React.FC<TransactionTutorialProps> = ({ publicKey, co
                 })
             );
     
-            // Explicitly request authorization from the wallet
-            const signature = await window.solana.signAndSendTransaction(transaction);
-    
-            await connection.confirmTransaction(signature, 'confirmed');
+            await window.solana.signAndSendTransaction(transaction);
+
+            // await connection.confirmTransaction(signature, 'confirmed');
     
             onTransactionComplete();
             setRecipient('');
@@ -50,16 +49,13 @@ const TransactionTutorial: React.FC<TransactionTutorialProps> = ({ publicKey, co
         } catch (error) {
             console.error("Transaction error:", error);
     
-            // Type check and error handling
             if (error instanceof Error) {
-                // Handle known error cases
                 if (error.message.includes("not been authorized by the user")) {
                     setTransactionError("Transaction was not authorized. Please approve the transaction in your wallet.");
                 } else {
                     setTransactionError("Failed to send transaction. Please check the details and try again.");
                 }
             } else {
-                // Handle unknown errors
                 setTransactionError("An unknown error occurred. Please try again.");
             }
         } finally {

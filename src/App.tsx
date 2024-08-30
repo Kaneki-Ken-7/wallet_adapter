@@ -43,10 +43,7 @@ export const App: React.FC = () => {
         <ConnectionProvider endpoint={endpoint}>
             <WalletProvider wallets={wallets} autoConnect>
                 <WalletModalProvider>
-                    {/* <WalletMultiButton />
-                    <WalletDisconnectButton /> */}
                     <Airdrop></Airdrop>
-                    { /* Your app's components go here, nested within the context providers. */ }
                 </WalletModalProvider>
             </WalletProvider>
         </ConnectionProvider>
