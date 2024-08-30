@@ -10,7 +10,6 @@ interface TransactionTutorialProps {
 const TransactionTutorial: React.FC<TransactionTutorialProps> = ({ publicKey, connection, onTransactionComplete }) => {
     const [recipient, setRecipient] = useState('');
     const [amount, setAmount] = useState('');
-    const [sign, setSign] = useState<string | null>(null);
     const [isTransacting, setIsTransacting] = useState(false);
     const [transactionError, setTransactionError] = useState<string | null>(null);
 
