@@ -39,3 +39,5 @@ To set up and run this project locally, follow these steps:
    ```bash
    git clone https://github.com/Kaneki-Ken-7/wallet_adapter.git
    cd wallet_adapter
+   npm install
+   npm run dev
