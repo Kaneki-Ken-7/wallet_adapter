@@ -1,50 +1,41 @@
-# React + TypeScript + Vite
+# Solana DApp
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple decentralized application (DApp) built on the Solana blockchain. This project demonstrates how to interact with Solana for balance checking, airdropping SOL, and making transactions. It uses React for the frontend and the Solana Web3.js library for blockchain interactions.
 
-Currently, two official plugins are available:
+## Table of Contents
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- [Project Overview](#project-overview)
+- [Features](#features)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Contributing](#contributing)
+- [License](#license)
 
-## Expanding the ESLint configuration
+## Project Overview
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+This DApp allows users to:
 
-- Configure the top-level `parserOptions` property like this:
+- Connect their Solana wallet.
+- Check their Solana balance.
+- Request an airdrop of SOL.
+- Send SOL to other addresses.
+- Refresh their balance.
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+The DApp is built using React and leverages the Solana Web3.js library to interact with the Solana blockchain.
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+## Features
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+- Connect to a Solana wallet using Wallet Adapter.
+- Request an airdrop of SOL.
+- Send SOL to other users.
+- Refresh balance to see real-time updates.
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+## Installation
+
+To set up and run this project locally, follow these steps:
+
+1. **Clone the Repository:**
+
+   ```bash
+   git clone https://github.com/Kaneki-Ken-7/wallet_adapter.git
+   cd wallet_adapter
