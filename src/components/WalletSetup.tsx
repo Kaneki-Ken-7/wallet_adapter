@@ -10,7 +10,7 @@ const WalletSetup: React.FC = () => {
                 <li className="mb-2">Install a Solana wallet extension (like Phantom or Solflare) in your browser</li>
                 <li className="mb-2">Create a new wallet or import an existing one</li>
                 <li className="mb-2">Make sure you're connected to the Solana devnet</li>
-                <li>Click the button below to connect your wallet to this app</li>
+                <li>Click the button to connect your wallet to this app</li>
             </ol>
             {/* <WalletMultiButton className="bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded" /> */}
         </div>
