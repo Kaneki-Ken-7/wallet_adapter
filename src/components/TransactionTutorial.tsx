@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Connection, PublicKey, Transaction, SystemProgram, LAMPORTS_PER_SOL } from '@solana/web3.js';
+import { Connection, PublicKey, Transaction, SystemProgram, LAMPORTS_PER_SOL, TransactionSignature } from '@solana/web3.js';
 
 interface TransactionTutorialProps {
     publicKey: PublicKey | null;
@@ -10,8 +10,10 @@ interface TransactionTutorialProps {
 const TransactionTutorial: React.FC<TransactionTutorialProps> = ({ publicKey, connection, onTransactionComplete }) => {
     const [recipient, setRecipient] = useState('');
     const [amount, setAmount] = useState('');
+    const [sign, setSign] = useState<string | null>(null);
     const [isTransacting, setIsTransacting] = useState(false);
     const [transactionError, setTransactionError] = useState<string | null>(null);
+
 
     const handleTransaction = async () => {
         if (!publicKey || !connection || !window.solana) {
@@ -27,7 +29,8 @@ const TransactionTutorial: React.FC<TransactionTutorialProps> = ({ publicKey, co
             const lamports = parseFloat(amount) * LAMPORTS_PER_SOL;
     
             const { blockhash } = await connection.getLatestBlockhash('confirmed');
-    
+            
+            // const transaction = new Transaction().add(SystemProgram.transfer({fromPubkey:publicKey,toPubkey:recipientPubkey, lamports}))
             const transaction = new Transaction({
                 recentBlockhash: blockhash,
                 feePayer: publicKey,
@@ -39,8 +42,10 @@ const TransactionTutorial: React.FC<TransactionTutorialProps> = ({ publicKey, co
                 })
             );
     
-            await window.solana.signAndSendTransaction(transaction);
-
+            // await window.solana.signAndSendTransaction(transaction);
+            const signature: TransactionSignature = await window.solana.signAndSendTransaction(transaction);
+            console.log('SIGNATURE', signature);
+            
             // await connection.confirmTransaction(signature, 'confirmed');
     
             onTransactionComplete();

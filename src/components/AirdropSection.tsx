@@ -21,12 +21,19 @@ const AirdropSection: React.FC<AirdropSectionProps> = ({ publicKey, connection, 
         setAirdropError(null);
 
         try {
-            await connection.requestAirdrop(
+            const signature = await connection.requestAirdrop(
                 publicKey,
                 LAMPORTS_PER_SOL
             );
-            
-            onAirdropComplete();
+            await connection.getSignatureStatus(signature).then(()=>{
+                console.log("successfull Airdrop: ");
+                onAirdropComplete()
+            })
+            // console.log("successfully airdropped ! :",signature );
+            // const signature2: TransactionSignature = await connection.getSignatureStatus(signature);
+
+        // Confirm the transaction using the new API
+            // onAirdropComplete();
         } catch (error) {
             console.error("Airdrop error:", error);
             setAirdropError("Failed to airdrop SOL. Please try again.");
